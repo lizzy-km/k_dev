@@ -40,7 +40,7 @@ export function Hero() {
                 <Link href="https://www.linkedin.com/in/vincexoy/" target="_blank" className="p-3 bg-secondary rounded-full hover:bg-primary/20 transition-colors">
                   <Linkedin className="h-6 w-6" />
                 </Link>
-                <Link href="mailto:kaungmyatsoe.dev@gmail.com" className="p-3 bg-secondary rounded-full hover:bg-primary/20 transition-colors">
+                <Link href="mailto:kaungmyatsoe.devk@gmail.com" className="p-3 bg-secondary rounded-full hover:bg-primary/20 transition-colors">
                   <Mail className="h-6 w-6" />
                 </Link>
               </div>
