@@ -8,12 +8,12 @@ import { Textarea } from '@/components/ui/textarea';
 import { Github, Linkedin, Mail, Phone, MapPin, Send, Facebook } from 'lucide-react';
 import Link from 'next/link';
 import axios from 'axios';
-
-
-
+import { useToast } from '@/hooks/use-toast';
 
 
 export function Contact() {
+
+  const { toast } = useToast()
   const socialLinks = [
     { icon: <Facebook className="h-5 w-5" />, href: "https://www.facebook.com/dev.lizzy.", label: "Facebook" },
     { icon: <Linkedin className="h-5 w-5" />, href: "https://www.linkedin.com/in/vincexoy/", label: "Linkedin" },
@@ -23,10 +23,10 @@ export function Contact() {
 
 
   const [form, setForm] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
+    name: null,
+    email: null,
+    subject: null,
+    message: null,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
@@ -36,17 +36,36 @@ export function Contact() {
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     await axios.post(`/api/send-email?data=${JSON.stringify({
-        from: `${form.name}<quix@quix-dev.online>`,
-        subject: `${form.subject} from: ${form.email}`,
-        html: `\n<pre>${form.message}</pre>`,
-        to:"kaungmyatsoe.devk@gmail.com"
-      })}`,{
-        headers: {
-          "Content-Type": "application/json",
-          
-        },
-      })
-   
+      from: form.name ? `${form.name}<quix@quix-dev.online>` : null,
+      subject: form.subject ? `${form.subject} from: ${form.email}` : null,
+      html: form.message ? `\n<pre>${form.message}</pre>` : null,
+      to: "kaungmyatsoe.devk@gmail.com"
+    })}`, {
+      headers: {
+        "Content-Type": "application/json",
+
+      },
+    }).then((res) => {
+      toast({
+        title: "Your message has been sent!",
+        description: "Thanks for reach me out.",
+        variant: "default"
+      });
+      setForm({
+        name: null,
+        email: null,
+        subject: null,
+        message: null,
+      });
+    }).catch((err) => {
+
+      toast({
+        title: "Failed to send message!",
+        description: "Something went wrong. Please check your input fields.",
+        variant: "destructive"
+      });
+    });
+
   }
 
 
@@ -123,20 +142,20 @@ export function Contact() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-semibold">Full Name</label>
-                  <Input onChange={handleChange} name='name' placeholder="Alex" className="bg-secondary/50 border-none focus-visible:ring-primary" />
+                  <Input required onChange={handleChange} name='name' placeholder="Alex" className="bg-secondary/50 border-none focus-visible:ring-primary" />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-semibold">Email Address</label>
-                  <Input onChange={handleChange} name='email' type="email" placeholder="alex@example.com" className="bg-secondary/50 border-none focus-visible:ring-primary" />
+                  <label className="text-sm font-semibold">Your Email Address</label>
+                  <Input required onChange={handleChange} name='email' type="email" placeholder="alex@example.com" className="bg-secondary/50 border-none focus-visible:ring-primary" />
                 </div>
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-semibold">Subject</label>
-                <Input name='subject' onChange={handleChange} placeholder="Project Inquiry" className="bg-secondary/50 border-none focus-visible:ring-primary" />
+                <Input required name='subject' onChange={handleChange} placeholder="Project Inquiry" className="bg-secondary/50 border-none focus-visible:ring-primary" />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-semibold">Message</label>
-                <Textarea name='message' onChange={handleChange} placeholder="Tell me about your project..." className="min-h-[150px] bg-secondary/50 border-none focus-visible:ring-primary" />
+                <Textarea required name='message' onChange={handleChange} placeholder="Tell me about your project..." className="min-h-[150px] bg-secondary/50 border-none focus-visible:ring-primary" />
               </div>
               <Button className="w-full font-bold h-12 text-base">
                 Send Message <Send className="ml-2 h-5 w-5" />

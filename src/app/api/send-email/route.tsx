@@ -27,13 +27,20 @@ export async function POST(req: Request, res: NextApiResponse) {
 
         })
 
+
         if (error) {
-            return Response.json({ error }, { status: 500 });
+            return Response.json({ error: error }, { status: error.statusCode || 500 })
         }
 
-        return Response.json({ data, reqData });
-    } catch (error) {
-        return Response.json({ error }, { status: 500 });
+        return Response.json({ message: "Email sent successfully", data }, { status: 200 });
+
+
+
+    } catch (error: any) {
+
+        return Response.json(error, { status: 500 });
+
+
     }
 
 
