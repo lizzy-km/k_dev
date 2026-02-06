@@ -9,7 +9,6 @@ import { Github, Linkedin, Mail, Phone, MapPin, Send, Facebook } from 'lucide-re
 import Link from 'next/link';
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 
 
 
@@ -21,6 +20,9 @@ export function Contact() {
     { icon: <Linkedin className="h-5 w-5" />, href: "https://www.linkedin.com/in/vincexoy/", label: "Linkedin" },
     { icon: <Github className="h-5 w-5" />, href: "https://github.com/lizzy-km", label: "Github" },
   ];
+
+  const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+
 
   const [form, setForm] = useState({
     name: "",
