@@ -16,7 +16,7 @@ export default function Home() {
       <Skills />
       <Experience />
       <Projects />
-      <FigmaTool />
+      {/* <FigmaTool /> */}
       <Contact />
       
       <footer className="py-12 border-t border-border/50 text-center">
@@ -28,7 +28,7 @@ export default function Home() {
             &copy; {new Date().getFullYear()} Kaung Myat Soe. All rights reserved.
           </p>
           <div className="flex justify-center gap-6 text-xs text-muted-foreground">
-            <p>Built with Next.js, Tailwind & GenAI</p>
+            <p>Built with Next.js, Tailwind</p>
             <p>Designed for Performance</p>
           </div>
         </div>

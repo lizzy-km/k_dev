@@ -23,7 +23,7 @@ export function Hero() {
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-lg leading-relaxed">
                 Hi, I'm <span className="text-primary font-bold">Kaung Myat Soe</span>. 
-                A Senior React Developer with a focus on building scalable HRMS, Point Systems, and intuitive user interfaces.
+                A React Developer with a focus on building scalable applications and intuitive user interfaces.
               </p>
             </div>
 
@@ -48,17 +48,17 @@ export function Hero() {
 
             <div className="grid grid-cols-3 gap-8 pt-8 border-t border-border/50 max-w-md">
               <div>
-                <p className="text-3xl font-bold">5+</p>
+                <p className="text-3xl font-bold">2+</p>
                 <p className="text-xs text-muted-foreground uppercase tracking-widest">Years Experience</p>
               </div>
               <div>
-                <p className="text-3xl font-bold">20+</p>
+                <p className="text-3xl font-bold">5+</p>
                 <p className="text-xs text-muted-foreground uppercase tracking-widest">Projects Delivered</p>
               </div>
-              <div>
+              {/* <div>
                 <p className="text-3xl font-bold">10+</p>
                 <p className="text-xs text-muted-foreground uppercase tracking-widest">UI Libraries</p>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -72,7 +72,7 @@ export function Hero() {
               <div className="p-8 space-y-4 font-code text-sm">
                 <p><span className="text-primary">const</span> <span className="text-foreground">developer</span> = &#123;</p>
                 <p className="pl-6">name: <span className="text-accent">'Kaung Myat Soe'</span>,</p>
-                <p className="pl-6">role: <span className="text-accent">'Senior React Developer'</span>,</p>
+                <p className="pl-6">role: <span className="text-accent">'React Developer'</span>,</p>
                 <p className="pl-6">skills: [<span className="text-accent">'React'</span>, <span className="text-accent">'TypeScript'</span>, <span className="text-accent">'Zustand'</span>, <span className="text-accent">'Next.js'</span>],</p>
                 <p className="pl-6">specialty: <span className="text-accent">'HRMS & Point Systems'</span>,</p>
                 <p className="pl-6 text-muted-foreground">// Building the future with high quality code</p>

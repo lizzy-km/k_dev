@@ -1,3 +1,23 @@
+
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "social-media",
+      "description": "Social media application interface showing posts and feed.",
+      "imageUrl": "/social.png",
+      "imageHint": "social media"
+    },
+    {
+      "id": "movie-db",
+      "description": "Movie database clone showing a grid of movie posters.",
+      "imageUrl": "/movie.png",
+      "imageHint": "movie theater"
+    },
+    {
+      "id": "figma-plugin",
+      "description": "Figma interface with a custom plugin window.",
+      "imageUrl": "/figma.png",
+      "imageHint": "design interface"
+    }
+  ]
 }

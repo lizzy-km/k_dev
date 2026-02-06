@@ -41,7 +41,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="text-xs text-muted uppercase tracking-widest font-bold">Email</p>
-                  <p className="font-semibold">kaungmyatsoe.dev@gmail.com</p>
+                  <p className="font-semibold">kaungmyatsoe2k21@gmail.com</p>
                 </div>
               </div>
 
@@ -88,11 +88,11 @@ export function Contact() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-semibold">Full Name</label>
-                  <Input placeholder="John Doe" className="bg-secondary/50 border-none focus-visible:ring-primary" />
+                  <Input placeholder="Alex" className="bg-secondary/50 border-none focus-visible:ring-primary" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-semibold">Email Address</label>
-                  <Input type="email" placeholder="john@example.com" className="bg-secondary/50 border-none focus-visible:ring-primary" />
+                  <Input type="email" placeholder="alex@example.com" className="bg-secondary/50 border-none focus-visible:ring-primary" />
                 </div>
               </div>
               <div className="space-y-2">

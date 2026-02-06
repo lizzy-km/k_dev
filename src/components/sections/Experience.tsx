@@ -8,7 +8,7 @@ export function Experience() {
     {
       company: "Digital Base",
       role: "React Developer",
-      period: "2021 - Present",
+      period: "2025 - Present",
       location: "Yangon, Myanmar",
       description: "Leading frontend development for large-scale enterprise applications with a focus on HR and financial systems.",
       duties: [

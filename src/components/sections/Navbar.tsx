@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import { Menu, X } from 'lucide-react';
+import { Download, DownloadCloud, DownloadIcon, Menu, X } from 'lucide-react';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,7 +23,7 @@ export function Navbar() {
     { name: 'Skills', href: '#skills' },
     { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#projects' },
-    { name: 'AI Tool', href: '#ai-tool' },
+    // { name: 'AI Tool', href: '#ai-tool' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -53,6 +53,14 @@ export function Navbar() {
             className="bg-primary text-primary-foreground px-4 py-2 rounded-md text-sm font-bold hover:opacity-90 transition-opacity"
           >
             Hire Me
+          </Link>
+
+           <Link 
+           download
+            href={'/Kaung_Myat_Soe_Front_End_Developer.pdf'}
+            className=" flex bg-primary text-primary-foreground px-3 py-4 rounded-md text-sm font-bold hover:opacity-90 transition-opacity"
+          >
+            Download CV <DownloadCloud className="ml-2 h-5 w-5" />
           </Link>
         </div>
 
