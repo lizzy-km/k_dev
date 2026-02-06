@@ -7,8 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Github, Linkedin, Mail, Phone, MapPin, Send, Facebook } from 'lucide-react';
 import Link from 'next/link';
-import { Resend } from "resend";
-
+import axios from 'axios';
 
 
 
@@ -21,7 +20,6 @@ export function Contact() {
     { icon: <Github className="h-5 w-5" />, href: "https://github.com/lizzy-km", label: "Github" },
   ];
 
-  const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 
 
   const [form, setForm] = useState({
@@ -31,25 +29,25 @@ export function Contact() {
     message: "",
   });
 
-  const handleChange = (e:React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>) =>
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const sendMail = async (e:React.FormEvent) => {
+
+  async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-
-    resend.emails.send({
-      from: form.name + "<" + form.email + ">",
-      to: "kaungmyatsoe2k21@gmail.com",
-      subject: form.subject,
-      html: `<div>
-      <h1>New message from ${form.name} (${form.email})</h1>
-      <p>${form.message}</p>
-      </div>
-      `,
-    }).then(() => console.log("Email sent successfully"))
-      .catch((error) => console.error("Error sending email:", error));
-
-  };
+    await axios.post(`/api/send-email?data=${JSON.stringify({
+        from: `${form.name}<quix@quix-dev.online>`,
+        subject: `${form.subject} from: ${form.email}`,
+        html: `\n<pre>${form.message}</pre>`,
+        to:"kaungmyatsoe.devk@gmail.com"
+      })}`,{
+        headers: {
+          "Content-Type": "application/json",
+          
+        },
+      })
+   
+  }
 
 
   return (
@@ -121,15 +119,15 @@ export function Contact() {
           </div>
 
           <div className="lg:col-span-3">
-            <form className="bg-card p-8 rounded-2xl border border-border shadow-sm space-y-6" onSubmit={sendMail}>
+            <form className="bg-card p-8 rounded-2xl border border-border shadow-sm space-y-6" onSubmit={onSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-semibold">Full Name</label>
-                  <Input onChange={handleChange} placeholder="Alex" className="bg-secondary/50 border-none focus-visible:ring-primary" />
+                  <Input onChange={handleChange} name='name' placeholder="Alex" className="bg-secondary/50 border-none focus-visible:ring-primary" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-semibold">Email Address</label>
-                  <Input onChange={handleChange} type="email" placeholder="alex@example.com" className="bg-secondary/50 border-none focus-visible:ring-primary" />
+                  <Input onChange={handleChange} name='email' type="email" placeholder="alex@example.com" className="bg-secondary/50 border-none focus-visible:ring-primary" />
                 </div>
               </div>
               <div className="space-y-2">
