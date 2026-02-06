@@ -1,0 +1,35 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "social-media",
+      "description": "Social media application interface showing posts and feed.",
+      "imageUrl": "https://picsum.photos/seed/social-media/800/600",
+      "imageHint": "social media"
+    },
+    {
+      "id": "movie-db",
+      "description": "Movie database clone showing a grid of movie posters.",
+      "imageUrl": "https://picsum.photos/seed/movies/800/600",
+      "imageHint": "movie theater"
+    },
+    {
+      "id": "figma-plugin",
+      "description": "Figma interface with a custom plugin window.",
+      "imageUrl": "https://picsum.photos/seed/figma/800/600",
+      "imageHint": "design interface"
+    },
+    {
+      "id": "hrms-system",
+      "description": "Dashboard for an HR management system.",
+      "imageUrl": "https://picsum.photos/seed/hrms/800/600",
+      "imageHint": "dashboard software"
+    },
+    {
+      "id": "point-system",
+      "description": "Wallet application with transaction history.",
+      "imageUrl": "https://picsum.photos/seed/wallet/800/600",
+      "imageHint": "financial app"
+    }
+  ]
+}
