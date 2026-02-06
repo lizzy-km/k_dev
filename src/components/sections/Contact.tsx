@@ -1,12 +1,19 @@
 
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Github, Linkedin, Mail, Phone, MapPin, Send, Facebook } from 'lucide-react';
 import Link from 'next/link';
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+
+
+
+
 
 export function Contact() {
   const socialLinks = [
@@ -14,6 +21,34 @@ export function Contact() {
     { icon: <Linkedin className="h-5 w-5" />, href: "https://www.linkedin.com/in/vincexoy/", label: "Linkedin" },
     { icon: <Github className="h-5 w-5" />, href: "https://github.com/lizzy-km", label: "Github" },
   ];
+
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (e:React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
+
+  const sendMail = async (e:React.FormEvent) => {
+    e.preventDefault();
+
+    resend.emails.send({
+      from: form.name + "<" + form.email + ">",
+      to: "kaungmyatsoe2k21@gmail.com",
+      subject: form.subject,
+      html: `<div>
+      <h1>New message from ${form.name} (${form.email})</h1>
+      <p>${form.message}</p>
+      </div>
+      `,
+    }).then(() => console.log("Email sent successfully"))
+      .catch((error) => console.error("Error sending email:", error));
+
+  };
+
 
   return (
     <section id="contact" className="bg-secondary/30">
@@ -70,9 +105,9 @@ export function Contact() {
               <p className="text-xs text-muted uppercase tracking-widest font-bold">Social Profiles</p>
               <div className="flex gap-4">
                 {socialLinks.map((social, idx) => (
-                  <Link 
-                    key={idx} 
-                    href={social.href} 
+                  <Link
+                    key={idx}
+                    href={social.href}
                     target="_blank"
                     className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all"
                   >
@@ -84,24 +119,24 @@ export function Contact() {
           </div>
 
           <div className="lg:col-span-3">
-            <form className="bg-card p-8 rounded-2xl border border-border shadow-sm space-y-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="bg-card p-8 rounded-2xl border border-border shadow-sm space-y-6" onSubmit={sendMail}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-semibold">Full Name</label>
-                  <Input placeholder="Alex" className="bg-secondary/50 border-none focus-visible:ring-primary" />
+                  <Input onChange={handleChange} placeholder="Alex" className="bg-secondary/50 border-none focus-visible:ring-primary" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-semibold">Email Address</label>
-                  <Input type="email" placeholder="alex@example.com" className="bg-secondary/50 border-none focus-visible:ring-primary" />
+                  <Input onChange={handleChange} type="email" placeholder="alex@example.com" className="bg-secondary/50 border-none focus-visible:ring-primary" />
                 </div>
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-semibold">Subject</label>
-                <Input placeholder="Project Inquiry" className="bg-secondary/50 border-none focus-visible:ring-primary" />
+                <Input name='subject' onChange={handleChange} placeholder="Project Inquiry" className="bg-secondary/50 border-none focus-visible:ring-primary" />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-semibold">Message</label>
-                <Textarea placeholder="Tell me about your project..." className="min-h-[150px] bg-secondary/50 border-none focus-visible:ring-primary" />
+                <Textarea name='message' onChange={handleChange} placeholder="Tell me about your project..." className="min-h-[150px] bg-secondary/50 border-none focus-visible:ring-primary" />
               </div>
               <Button className="w-full font-bold h-12 text-base">
                 Send Message <Send className="ml-2 h-5 w-5" />

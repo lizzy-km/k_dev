@@ -34,7 +34,7 @@ export function Projects() {
       image: PlaceHolderImages.find(img => img.id === 'figma-plugin')?.imageUrl,
       liveUrl: "https://github.com/lizzy-km/LazyMode",
       githubUrl: "https://github.com/lizzy-km/LazyMode",
-      tags: ["GenAI", "Figma API", "React", "Plugin Dev"],
+      tags: ["Figma API", "Typescript", "Plugin Dev"],
       features: ["Instant Code Generation", "Support all Frame types", "Exportable Snippets"]
     }
   ];
