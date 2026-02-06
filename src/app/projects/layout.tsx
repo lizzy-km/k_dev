@@ -1,9 +1,9 @@
 
 import type {Metadata} from 'next';
-import './globals.css';
+import '../globals.css';
 
 export const metadata: Metadata = {
-  title: "Kaung's Portfolio | React Developer",
+  title: "Kaung's Projects | React Developer",
   description: 'Portfolio of Kaung Myat Soe -  React Developer specializing in HRMS and Fintech solutions.',
 };
 
@@ -12,20 +12,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
-
-      
   return (
     <html lang="en" className="scroll-smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-        <script src="https://techo-ai-chatbot-omega.vercel.app/chatbot.umd.js">
-        
-        </script>
-
-    
       </head>
       <body className="font-body antialiased bg-background text-foreground overflow-x-hidden">
         {children}

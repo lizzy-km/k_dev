@@ -14,7 +14,7 @@ export function Projects() {
       title: "React + Firebase Social Media",
       description: "A full-featured Instagram/Facebook clone with real-time updates, story features, and messaging.",
       image: PlaceHolderImages.find(img => img.id === 'social-media')?.imageUrl,
-      liveUrl: "https://facebook-k.vercel.app/",
+      liveUrl: "/projects/social",
       githubUrl: "https://github.com/lizzy-km/instagram-k",
       tags: ["React", "Firebase", "Realtime", "Tailwind"],
       features: ["Create Posts & Stories", "Direct Messaging", "Social Interactions", "Email/Password Auth"]
@@ -23,7 +23,7 @@ export function Projects() {
       title: "The Movie Database Clone",
       description: "A comprehensive movie discovery platform utilizing The Movie DB API with high design fidelity.",
       image: PlaceHolderImages.find(img => img.id === 'movie-db')?.imageUrl,
-      liveUrl: "https://themoviedb-org.vercel.app/",
+      liveUrl: "/projects/movie",
       githubUrl: "https://github.com/lizzy-km/themoviedb-org",
       tags: ["React", "API Integration", "Framer Motion", "Styled Components"],
       features: ["Search Movies", "Trending Lists", "Details & Cast", "Responsive Grid"]
