@@ -58,7 +58,7 @@ export function Navbar() {
            <Link 
            download
             href={'/Kaung_Myat_Soe_Front_End_Developer.pdf'}
-            className=" flex bg-primary text-primary-foreground px-3 py-4 rounded-md text-sm font-bold hover:opacity-90 transition-opacity"
+            className=" flex bg-primary text-primary-foreground px-3 py-2 rounded-md text-sm font-bold hover:opacity-90 transition-opacity"
           >
             Download CV <DownloadCloud className="ml-2 h-5 w-5" />
           </Link>

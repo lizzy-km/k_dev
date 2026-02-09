@@ -54,6 +54,21 @@ const nextConfig: NextConfig = {
         destination: 'https://facebook-k.vercel.app/:match*',
         permanent: true,
       },
+      {
+        source: '/github-page/:match*',
+        destination: 'https://github.com/lizzy-km/:match*',
+        permanent: true,
+      },
+      {
+        source: '/linkedin-page/:match*',
+        destination: 'https://www.linkedin.com/in/vincexoy/:match*',
+        permanent: true,
+      },
+      {
+        source: '/facebook-page/:match*',
+        destination: 'https://www.facebook.com/dev.quix/:match*',
+        permanent: true,
+      },
     ];
   }
 };
