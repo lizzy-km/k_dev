@@ -17,11 +17,11 @@
   "rewrites": [
     
     {
-        "source": "/projects/movie/:match*",
+        "source": "/movie-app/:match*",
         "destination": "https://themoviedb-org.vercel.app/:match*"
       },
       {
-        "source": "/projects/social/:match*",
+        "source": "/social-app/:match*",
         "destination": "https://facebook-k.vercel.app/:match*"
       
       }

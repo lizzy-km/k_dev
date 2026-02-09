@@ -33,25 +33,25 @@ const nextConfig: NextConfig = {
   rewrites: async () => {
     return [
       {
-        source: '/projects/movie/:match*',
+        source: '/movie-app/:match*',
         destination: 'https://themoviedb-org.vercel.app/:match*',
       },
       {
-        source: '/projects/social/',
-        destination: 'https://social-q.pages.dev/*',
+        source: '/social-app/:match*',
+        destination: 'https://facebook-k.vercel.app/:match*',
       },
     ];
   },
   redirects: async () => {
     return [
       {
-        source: '/projects/movie/:match*',
+        source: '/movie-app/:match*',
         destination: 'https://themoviedb-org.vercel.app/:match*',
         permanent: true,
       },
       {
-        source: '/old-social-page',
-        destination: '/projects/social',
+        source: '/social-app/:match*',
+        destination: 'https://facebook-k.vercel.app/:match*',
         permanent: true,
       },
     ];
