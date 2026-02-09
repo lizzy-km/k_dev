@@ -1,4 +1,4 @@
-import type {NextConfig} from 'next';
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -30,6 +30,32 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  rewrites: async () => {
+    return [
+      {
+        source: '/projects/movie/:match*',
+        destination: 'https://themoviedb-org.vercel.app/:match*',
+      },
+      {
+        source: '/projects/social/',
+        destination: 'https://social-q.pages.dev/*',
+      },
+    ];
+  },
+  redirects: async () => {
+    return [
+      {
+        source: '/projects/movie/:match*',
+        destination: 'https://themoviedb-org.vercel.app/:match*',
+        permanent: true,
+      },
+      {
+        source: '/old-social-page',
+        destination: '/projects/social',
+        permanent: true,
+      },
+    ];
+  }
 };
 
 export default nextConfig;
