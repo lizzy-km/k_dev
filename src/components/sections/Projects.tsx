@@ -32,7 +32,7 @@ export function Projects() {
       title: "ClarityCareer",
       description: "The transparent job board. Find jobs, company reviews, and salary insights all in one place.",
       image: PlaceHolderImages.find(img => img.id === 'career-hub')?.imageUrl,
-      liveUrl: "/projects/career-hub-app",
+      liveUrl: "/projects/career-hub",
       githubUrl: "https://github.com/lizzy-km/clarity-career",
       tags: ["Next", "Firebase", "Redix UI", "Styled Components"],
       features: ["Find &  Post Jobs", "Company Reviews", "Salary Insights", "Interview Experiences"]
