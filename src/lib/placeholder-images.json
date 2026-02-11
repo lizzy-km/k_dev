@@ -14,6 +14,12 @@
       "imageHint": "movie theater"
     },
     {
+      "id": "career-hub",
+      "description": "Career Hub showing a grid of movie posters.",
+      "imageUrl": "/career-hub.png",
+      "imageHint": "Landing page with job listings and company reviews"
+    },
+    {
       "id": "figma-plugin",
       "description": "Figma interface with a custom plugin window.",
       "imageUrl": "/figma.png",
