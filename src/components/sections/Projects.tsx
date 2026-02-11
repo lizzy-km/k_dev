@@ -61,22 +61,25 @@ export function Projects() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, idx) => (
             <Card key={idx} className="group  bg-card border-border flex flex-col h-full hover:border-primary/50 transition-colors">
-              <div className="relative aspect-video o">
-                <Image 
-                  src={project.image || 'https://placehold.co/600x400'} 
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  data-ai-hint="software project screenshot"
-                />
-                <div className="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
-                  <Button asChild size="icon" variant="secondary" className="rounded-full">
-                    <Link href={project.liveUrl} ><Eye className="h-5 w-5" /></Link>
-                  </Button>
-                  <Button asChild size="icon" variant="secondary" className="rounded-full">
-                    <Link href={project.githubUrl} target="_blank"><Github className="h-5 w-5" /></Link>
-                  </Button>
+              <div className=" ">
+                <div className="relative aspect-video overflow-clip rounded-t-md">
+                  <Image
+                    src={project.image || 'https://placehold.co/600x400'}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    data-ai-hint="software project screenshot"
+                  />
+                  <div className="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                    <Button asChild size="icon" variant="secondary" className="rounded-full">
+                      <Link href={project.liveUrl} ><Eye className="h-5 w-5" /></Link>
+                    </Button>
+                    <Button asChild size="icon" variant="secondary" className="rounded-full">
+                      <Link href={project.githubUrl} target="_blank"><Github className="h-5 w-5" /></Link>
+                    </Button>
+                  </div>
                 </div>
+
               </div>
               <CardHeader>
                 <div className="flex gap-2 flex-wrap mb-2">
