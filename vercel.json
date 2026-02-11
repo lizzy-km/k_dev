@@ -27,8 +27,7 @@
       },
       {
         "source": "/career-hub-app/:match*",
-        "destination": "https://clarity-career-orpin.vercel.app/:match*",
-        "permanent": true
+        "destination": "https://clarity-career-orpin.vercel.app/:match*"
       }
   ]
 }
