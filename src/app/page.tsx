@@ -21,14 +21,7 @@ export default function Home() {
       {/* <FigmaTool /> */}
       <Contact />
 
-      <div className=' hidden md:flex absolute bottom-0 w-full h-[80]  justify-center items-center
-       ' >
-
-        <Link href={'/#skills'} className=' flex  justify-center items-center bg-[#12131470] w-[40] h-[40] rounded-full ' >
-          <ArrowDown />
-        </Link>
-
-      </div>
+      
 
       <footer className="py-12 border-t border-border/50 text-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
