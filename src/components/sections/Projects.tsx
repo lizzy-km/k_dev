@@ -60,8 +60,8 @@ export function Projects() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, idx) => (
-            <Card key={idx} className="group overflow-hidden bg-card border-border flex flex-col h-full hover:border-primary/50 transition-colors">
-              <div className="relative aspect-video overflow-hidden">
+            <Card key={idx} className="group  bg-card border-border flex flex-col h-full hover:border-primary/50 transition-colors">
+              <div className="relative aspect-video o">
                 <Image 
                   src={project.image || 'https://placehold.co/600x400'} 
                   alt={project.title}
