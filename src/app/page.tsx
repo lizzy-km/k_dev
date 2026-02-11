@@ -21,7 +21,7 @@ export default function Home() {
       {/* <FigmaTool /> */}
       <Contact />
 
-      <div className=' absolute bottom-0 w-full h-[80] flex justify-center items-center
+      <div className=' hidden md:flex absolute bottom-0 w-full h-[80]  justify-center items-center
        ' >
 
         <Link href={'/#skills'} className=' flex  justify-center items-center bg-[#12131470] w-[40] h-[40] rounded-full ' >
