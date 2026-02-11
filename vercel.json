@@ -24,6 +24,11 @@
         "source": "/social-app/:match*",
         "destination": "https://facebook-k.vercel.app/:match*"
       
+      },
+      {
+        "source": "/career-hub-app/:match*",
+        "destination": "https://clarity-career-orpin.vercel.app/:match*",
+        "permanent": true
       }
   ]
 }

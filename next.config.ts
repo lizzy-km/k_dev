@@ -54,6 +54,11 @@ const nextConfig: NextConfig = {
         destination: 'https://facebook-k.vercel.app/:match*',
         permanent: true,
       },
+       {
+        source: '/career-hub-app/:match*',
+        destination: 'https://clarity-career-orpin.vercel.app/:match*',
+        permanent: true,
+      },
       {
         source: '/github-page/:match*',
         destination: 'https://github.com/lizzy-km/:match*',

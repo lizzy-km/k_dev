@@ -25,8 +25,17 @@ export function Projects() {
       image: PlaceHolderImages.find(img => img.id === 'movie-db')?.imageUrl,
       liveUrl: "/projects/movie",
       githubUrl: "https://github.com/lizzy-km/themoviedb-org",
-      tags: ["React", "API Integration", "Framer Motion", "Styled Components"],
+      tags: ["React", "API Integration", "Styled Components"],
       features: ["Search Movies", "Trending Lists", "Details & Cast", "Responsive Grid"]
+    },
+    {
+      title: "ClarityCareer",
+      description: "The transparent job board. Find jobs, company reviews, and salary insights all in one place.",
+      image: PlaceHolderImages.find(img => img.id === 'career-hub')?.imageUrl,
+      liveUrl: "/projects/career-hub-app",
+      githubUrl: "https://github.com/lizzy-km/clarity-career",
+      tags: ["Next", "Firebase", "Redix UI", "Styled Components"],
+      features: ["Find &  Post Jobs", "Company Reviews", "Salary Insights", "Interview Experiences"]
     },
     {
       title: "Figma Plugin (LazyMode)",
