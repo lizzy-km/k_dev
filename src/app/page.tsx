@@ -1,3 +1,4 @@
+"use client";
 
 import { Navbar } from '@/components/sections/Navbar';
 import { Hero } from '@/components/sections/Hero';
@@ -7,12 +8,19 @@ import { Projects } from '@/components/sections/Projects';
 import { FigmaTool } from '@/components/sections/FigmaTool';
 import { Contact } from '@/components/sections/Contact';
 import { Toaster } from '@/components/ui/toaster';
-import Link from 'next/link';
-import { ArrowBigDown, ArrowDown } from 'lucide-react';
+import { Loader } from 'lucide-react';
 
 export default function Home() {
-  return (
-    <main className="min-h-screen ">
+
+  if(document.readyState === "loading") {
+   return (
+    <div className="min-h-screen flex items-center justify-center">
+      <Loader className="animate-spin h-10 w-10 text-primary" />
+    </div>
+   )
+  } else {
+     return (
+    <main  className="min-h-screen ">
       <Navbar />
       <Hero />
       <Skills />
@@ -21,7 +29,7 @@ export default function Home() {
       {/* <FigmaTool /> */}
       <Contact />
 
-      
+
 
       <footer className="py-12 border-t border-border/50 text-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
@@ -40,4 +48,7 @@ export default function Home() {
       <Toaster />
     </main>
   );
+  }
+
+ 
 }

@@ -10,15 +10,15 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function Projects() {
   const projects = [
-    {
-      title: "React + Firebase Social Media",
-      description: "A full-featured Instagram/Facebook clone with real-time updates, story features, and messaging.",
-      image: PlaceHolderImages.find(img => img.id === 'social-media')?.imageUrl,
-      liveUrl: "/projects/social",
-      githubUrl: "https://github.com/lizzy-km/instagram-k",
-      tags: ["React", "Firebase", "Realtime", "Tailwind"],
-      features: ["Create Posts & Stories", "Direct Messaging", "Social Interactions", "Email/Password Auth"]
-    },
+    // {
+    //   title: "React + Firebase Social Media",
+    //   description: "A full-featured Instagram/Facebook clone with real-time updates, story features, and messaging.",
+    //   image: PlaceHolderImages.find(img => img.id === 'social-media')?.imageUrl,
+    //   liveUrl: "/projects/social",
+    //   githubUrl: "https://github.com/lizzy-km/instagram-k",
+    //   tags: ["React", "Firebase", "Realtime", "Tailwind"],
+    //   features: ["Create Posts & Stories", "Direct Messaging", "Social Interactions", "Email/Password Auth"]
+    // },
     {
       title: "The Movie Database Clone",
       description: "A comprehensive movie discovery platform utilizing The Movie DB API with high design fidelity.",
