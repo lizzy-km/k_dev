@@ -1,10 +1,8 @@
 "use client";
 
-import { useState } from "react";
 
 export default function Movie() {
 
-  const[loading,setLoading] = useState(true)
    
   return (
     <div className="h-screen w-screen flex items-center justify-center">
