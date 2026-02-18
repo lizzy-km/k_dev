@@ -1,16 +1,14 @@
 "use client";
+
+import { useState } from "react";
+
 export default function Movie() {
 
-   if(document.readyState === "loading") {
-    return (
-     <div className="min-h-screen w-screen bg-[#232425] flex items-center justify-center">
-        <p className="text-lg font-bold text-[#d4d4d4]">Loading Movie Database...</p>
-      </div>
-    )
-  }
+  const[loading,setLoading] = useState(true)
+   
   return (
     <div className="h-screen w-screen flex items-center justify-center">
-      <iframe src="/movie-app" className="w-full h-full">Social Links Coming Soon!</iframe>
+      <iframe   loading="lazy" src="/movie-app" className="w-full h-full !bg-[#232425] text-[#d4d4d4]  ">Movie App Links Coming Soon!</iframe>
     </div>
   );
 }

@@ -12,13 +12,6 @@ import { Loader } from 'lucide-react';
 
 export default function Home() {
 
-  if(document.readyState === "loading") {
-   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <Loader className="animate-spin h-10 w-10 text-primary" />
-    </div>
-   )
-  } else {
      return (
     <main  className="min-h-screen ">
       <Navbar />
@@ -48,7 +41,7 @@ export default function Home() {
       <Toaster />
     </main>
   );
-  }
+  
 
  
 }
