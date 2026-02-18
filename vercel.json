@@ -28,6 +28,10 @@
       {
         "source": "/career-hub-app/:match*",
         "destination": "https://clarity-career-orpin.vercel.app/:match*"
+      },
+      {
+        "source": "/:match*",
+        "destination": "quix-p.vercel.app/:match*"
       }
   ]
 }
