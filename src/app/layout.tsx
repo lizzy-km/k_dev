@@ -3,16 +3,16 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: "Kaung's Portfolio | React Developer",
+  title: "Kaung Myat Soe's Portfolio | React Developer",
   description: 'Portfolio of Kaung Myat Soe -  React Developer specializing in HRMS and Fintech solutions.',
-  keywords: ['Kaung Myat Soe', 'React Developer', 'Portfolio', 'HRMS', 'Fintech', 'Web Development'],
+  keywords: ['Kaung Myat Soe', 'React Developer', 'Portfolio', 'HRMS', 'Fintech', 'Web Development','kaung myat soe','react developer','front-end developer','software engineer','developer portfolio','kaungmyatsoe.dev','kaungmyatsoe2k21','kaungmyatsoe','kaung myat soe portfolio','kaung myat soe react developer','kaung myat soe hrms','kaung myat soe fintech'],
   authors: [{ name: 'Kaung Myat Soe', url: 'https://quix-dev.online' }],
   creator: 'Kaung Myat Soe',
   openGraph: {
-    title: "Kaung's Portfolio | React Developer",
+    title: "Kaung Myat Soe's Portfolio | React Developer",
     description: 'Portfolio of Kaung Myat Soe -  React Developer specializing in HRMS and Fintech solutions.',
     url: 'https://quix-dev.online',
-    siteName: "Kaung's Portfolio",  
+    siteName: "Kaung Myat Soe's Portfolio",  
     images: [
       {
         url: 'https://quix-dev.online/kaungMyatSoe_p.png',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Kaung's Portfolio | React Developer",
+    title: "Kaung Myat Soe's Portfolio | React Developer",
     description: 'Portfolio of Kaung Myat Soe -  React Developer specializing in HRMS and Fintech solutions.',
     images: ['https://quix-dev.online/kaungMyatSoe_p.png'],
   },
