@@ -2,7 +2,7 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { motion } from "motion/react"
+import { motion, Variant, Variants } from "framer-motion";
 
 import {
   Code2,
@@ -48,6 +48,19 @@ export function Skills() {
   ];
 
 
+  const marqueeVariants:Variants = {
+    animate: {
+      x: ['0%', '-150%'], // Adjust -1035 based on your content width
+      transition: {
+        x: {
+          repeat: Infinity,
+          repeatType: "mirror",
+          duration: 25,
+          ease: "linear",
+        },
+      },
+    },
+  };
 
 
   return (
@@ -79,21 +92,15 @@ export function Skills() {
         <div className="mt-20 w-[100%] overflow-clip mx-auto ">
           <h3 className="text-center text-sm font-bold uppercase tracking-widest text-muted mb-8">Tools I work with daily</h3>
 
-          <div className=' flex flex-row justify-between max-w-[70%] mx-auto overflow-hidden  ' >
-            <motion.div initial={{ x: '100%' }} animate={{
-              x: '-100%',
+          <div className=' flex flex-row gap-[40] justify-between max-w-[70%] mx-auto overflow-hidden  ' >
+            {
+                [0,1,3,4].map((_, idx) => <motion.div
 
-            }}
-              transition={
-                {
-                  type: 'tween',
-                  repeat: Infinity,
-                  duration: 20,
-                  delay: 0.1
-                }
-              }
+              variants={marqueeVariants as Variants}
+              animate="animate"
               className="flex w-auto  justify-center gap-8 ">
-              <motion.div initial={{
+
+              <motion.div key={idx} initial={{
                 opacity: 0.5
               }} whileHover={{
                 opacity: 1
@@ -119,8 +126,11 @@ export function Skills() {
                 opacity: 1
               }} className="flex items-center gap-2"><Server className="h-6 w-6" /> <span className="font-bold">Axios</span></motion.div>
             </motion.div>
-
-            <motion.div initial={{ x: '100%' }} animate={{
+ )
+            }
+            
+            
+            {/* <motion.div initial={{ x: '100%' }} animate={{
               x: '-100%',
 
             }}
@@ -158,7 +168,7 @@ export function Skills() {
               }} whileHover={{
                 opacity: 1
               }} className="flex items-center gap-2"><Server className="h-6 w-6" /> <span className="font-bold">Axios</span></motion.div>
-            </motion.div>
+            </motion.div> */}
           </div>
 
         </div>
