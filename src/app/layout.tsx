@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     siteName: "Kaung's Portfolio",  
     images: [
       {
-        url: 'https://quix-dev.online/sticker.webp',
+        url: 'https://quix-dev.online/kaungMyatSoe_p.png',
         width: 1200,
         height: 630,
         alt: "Kaung Myat Soe's Portfolio",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Kaung's Portfolio | React Developer",
     description: 'Portfolio of Kaung Myat Soe -  React Developer specializing in HRMS and Fintech solutions.',
-    images: ['https://quix-dev.online/sticker.webp'],
+    images: ['https://quix-dev.online/kaungMyatSoe_p.png'],
   },
 };
 
