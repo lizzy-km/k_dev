@@ -5,7 +5,34 @@ import './globals.css';
 export const metadata: Metadata = {
   title: "Kaung's Portfolio | React Developer",
   description: 'Portfolio of Kaung Myat Soe -  React Developer specializing in HRMS and Fintech solutions.',
+  keywords: ['Kaung Myat Soe', 'React Developer', 'Portfolio', 'HRMS', 'Fintech', 'Web Development'],
+  authors: [{ name: 'Kaung Myat Soe', url: 'https://quix-dev.online' }],
+  creator: 'Kaung Myat Soe',
+  openGraph: {
+    title: "Kaung's Portfolio | React Developer",
+    description: 'Portfolio of Kaung Myat Soe -  React Developer specializing in HRMS and Fintech solutions.',
+    url: 'https://quix-dev.online',
+    siteName: "Kaung's Portfolio",  
+    images: [
+      {
+        url: 'https://quix-dev.online/sticker.webp',
+        width: 1200,
+        height: 630,
+        alt: "Kaung Myat Soe's Portfolio",
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Kaung's Portfolio | React Developer",
+    description: 'Portfolio of Kaung Myat Soe -  React Developer specializing in HRMS and Fintech solutions.',
+    images: ['https://quix-dev.online/sticker.webp'],
+  },
 };
+
+
 
 export default function RootLayout({
   children,
@@ -13,6 +40,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
+
+  
 
       
   return (
