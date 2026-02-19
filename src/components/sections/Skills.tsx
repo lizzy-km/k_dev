@@ -2,6 +2,8 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { motion } from "motion/react"
+
 import { 
   Code2, 
   Layout, 
@@ -14,6 +16,7 @@ import {
   GitBranch,
   Layers
 } from 'lucide-react';
+import SkillCard from '../ui/SkillCard';
 
 export function Skills() {
   const categories = [
@@ -44,6 +47,9 @@ export function Skills() {
     }
   ];
 
+
+
+
   return (
     <section id="skills" className="bg-secondary/30">
       <div className="section-container">
@@ -63,20 +69,7 @@ export function Skills() {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {cat.skills.map((skill, sIdx) => (
-                  <Card key={sIdx} className="bg-card/50 border-none shadow-sm hover:translate-y-[-2px] transition-transform">
-                    <CardContent className="p-4 flex flex-col gap-2">
-                      <div className="flex justify-between items-center">
-                        <span className="font-semibold text-sm">{skill.name}</span>
-                        <span className="text-xs text-primary font-bold">{skill.level}%</span>
-                      </div>
-                      <div className="w-full h-1.5 bg-secondary rounded-full overflow-hidden">
-                        <div 
-                          className="h-full bg-primary rounded-full transition-all duration-1000"
-                          style={{ width: `${skill.level}%` }}
-                        />
-                      </div>
-                    </CardContent>
-                  </Card>
+                 <SkillCard key={sIdx} skill={skill} sIdx={sIdx} />
                 ))}
               </div>
             </div>
@@ -85,13 +78,42 @@ export function Skills() {
 
         <div className="mt-20">
           <h3 className="text-center text-sm font-bold uppercase tracking-widest text-muted mb-8">Tools I work with daily</h3>
-          <div className="flex flex-wrap justify-center gap-8 opacity-60">
-             <div className="flex items-center gap-2"><GitBranch className="h-6 w-6" /> <span className="font-bold">Git/GitHub</span></div>
-             <div className="flex items-center gap-2"><Zap className="h-6 w-6" /> <span className="font-bold">Fast Refresh</span></div>
-             <div className="flex items-center gap-2"><Layers className="h-6 w-6" /> <span className="font-bold">Agile/Scrum</span></div>
-             <div className="flex items-center gap-2"><Smartphone className="h-6 w-6" /> <span className="font-bold">Responsive</span></div>
-             <div className="flex items-center gap-2"><Server className="h-6 w-6" /> <span className="font-bold">Axios</span></div>
-          </div>
+          <motion.div animate={{
+            x: -100,
+           
+          }}
+          transition={
+            {
+              type:'decay'
+            }
+          }
+           className="flex flex-wrap justify-center gap-8 ">
+             <motion.div initial={{
+              opacity: 0.5
+             }} whileHover={{
+              opacity: 1
+             }} className="flex items-center gap-2"><GitBranch className="h-6 w-6" /> <span className="font-bold">Git/GitHub</span></motion.div>
+             <motion.div initial={{
+              opacity: 0.5
+             }} whileHover={{
+              opacity: 1
+             }} className="flex items-center gap-2"><Zap className="h-6 w-6" /> <span className="font-bold">Fast Refresh</span></motion.div>
+             <motion.div initial={{
+              opacity: 0.5
+             }} whileHover={{
+              opacity: 1
+             }} className="flex items-center gap-2"><Layers className="h-6 w-6" /> <span className="font-bold">Agile/Scrum</span></motion.div>
+             <motion.div initial={{
+              opacity: 0.5
+             }} whileHover={{
+              opacity: 1
+             }} className="flex items-center gap-2"><Smartphone className="h-6 w-6" /> <span className="font-bold">Responsive</span></motion.div>
+             <motion.div initial={{
+              opacity: 0.5
+             }} whileHover={{
+              opacity: 1
+             }} className="flex items-center gap-2"><Server className="h-6 w-6" /> <span className="font-bold">Axios</span></motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

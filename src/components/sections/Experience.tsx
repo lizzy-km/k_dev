@@ -2,6 +2,7 @@
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Briefcase, GraduationCap, Calendar, MapPin, CheckCircle2 } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export function Experience() {
   const experiences = [
@@ -55,7 +56,7 @@ export function Experience() {
           {experiences.map((exp, idx) => (
             <div key={idx} className="relative pl-8 border-l-2 border-primary/20 space-y-6 pb-4">
               <div className="absolute -left-[11px] top-0 w-5 h-5 rounded-full bg-primary border-4 border-background" />
-              
+
               <div className="space-y-2">
                 <div className="flex flex-wrap justify-between items-start gap-4">
                   <div>
@@ -113,7 +114,7 @@ export function Experience() {
             ))}
           </div>
 
-          <div className="mt-12 p-6 bg-secondary rounded-xl space-y-4 border border-border">
+          <motion.div initial={{ opacity: 0.8, scale: 0.4 }} whileHover={{ boxShadow: "0 4px 100px -10px #d4d4d430" }} whileInView={{ opacity: 1, scale: 1, boxShadow: ["0 4px 10px -1px #d4d4d480", "0 4px 80px -10px #d4d4d430","0 4px 10px -1px #d4d4d480","0 4px 80px -10px #d4d4d430"] }} transition={{ duration: 0.7 }} className="mt-12 p-6 bg-secondary rounded-xl space-y-4 border border-border">
             <h4 className="font-bold">Why Hire Me?</h4>
             <p className="text-sm text-muted-foreground leading-relaxed">
               I don't just write code. I solve business problems with engineering solutions. My experience with transactional systems (Point/Wallet) has taught me the importance of security, real-time feedback, and user experience.
@@ -121,7 +122,7 @@ export function Experience() {
             <div className="flex items-center gap-2 text-primary font-bold text-sm">
               <CheckCircle2 className="h-4 w-4" /> Available immediately
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
