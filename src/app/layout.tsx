@@ -35,6 +35,10 @@ export const metadata: Metadata = {
 };
 
 
+const inter = Inter({
+    subsets: ['latin'],
+    variable: '--font-inter', // Allows you to use it in Tailwind
+  });
 
 export default function RootLayout({
   children,
@@ -45,10 +49,7 @@ export default function RootLayout({
 
 
 
-  const inter = Inter({
-    subsets: ['latin'],
-    variable: '--font-inter', // Allows you to use it in Tailwind
-  });
+  
 
   return (
     <html lang="en" className={`scroll-smooth ${inter.variable}`}>
