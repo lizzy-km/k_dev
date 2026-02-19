@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     
     images: [
       {
-        url: 'https://quix-dev.online/kaungMyatSoe_p.png',
+        url: '/kaungMyatSoe_p.png',
         width: 1200,
         height: 630,
         alt: "Kaung Myat Soe's Portfolio",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Kaung Myat Soe's Portfolio | React Developer",
     description: 'Portfolio of Kaung Myat Soe -  React Developer specializing in HRMS and Fintech solutions.',
-    images: ['https://quix-dev.online/kaungMyatSoe_p.png'],
+    images: ['/kaungMyatSoe_p.png'],
   },
 };
 
@@ -52,7 +52,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
         <script src="https://techo-ai-chatbot-omega.vercel.app/chatbot.umd.js">
-        <meta property="og:image" content="https://quix-dev.online/kaungMyatSoe_p.png"></meta>
+        <meta property="og:image" content="/kaungMyatSoe_p.png"></meta>
         <meta property="og:site_name" content="Kaung Myat Soe's Portfolio"></meta>
         <meta property="og:title" content="Kaung Myat Soe's Portfolio | React Developer"></meta>
         <meta property="og:description" content="Portfolio of Kaung Myat Soe -  React Developer specializing in HRMS and Fintech solutions."></meta>
@@ -60,7 +60,7 @@ export default function RootLayout({
         <meta property="twitter:description" content="Portfolio of Kaung Myat Soe -  React Developer specializing in HRMS and Fintech solutions."></meta>
         <meta property="twitter:title" content="Kaung Myat Soe's Portfolio | React Developer"></meta>
         <meta property="twitter:card" content="summary_large_image"></meta>
-        <meta property="twitter:image" content="https://quix-dev.online/kaungMyatSoe_p.png"></meta>
+        <meta property="twitter:image" content="/kaungMyatSoe_p.png"></meta>
         </script>
 
     
