@@ -4,14 +4,14 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { motion } from "motion/react"
 
-import { 
-  Code2, 
-  Layout, 
-  Database, 
-  Server, 
-  Smartphone, 
-  UserCircle2, 
-  Zap, 
+import {
+  Code2,
+  Layout,
+  Database,
+  Server,
+  Smartphone,
+  UserCircle2,
+  Zap,
   CheckCircle2,
   GitBranch,
   Layers
@@ -69,51 +69,98 @@ export function Skills() {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {cat.skills.map((skill, sIdx) => (
-                 <SkillCard key={sIdx} skill={skill} sIdx={sIdx} />
+                  <SkillCard key={sIdx} skill={skill} sIdx={sIdx} />
                 ))}
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-20">
+        <div className="mt-20 w-[100%] overflow-clip mx-auto ">
           <h3 className="text-center text-sm font-bold uppercase tracking-widest text-muted mb-8">Tools I work with daily</h3>
-          <motion.div animate={{
-            x: -100,
-           
-          }}
-          transition={
-            {
-              type:'decay'
-            }
-          }
-           className="flex flex-wrap justify-center gap-8 ">
-             <motion.div initial={{
-              opacity: 0.5
-             }} whileHover={{
-              opacity: 1
-             }} className="flex items-center gap-2"><GitBranch className="h-6 w-6" /> <span className="font-bold">Git/GitHub</span></motion.div>
-             <motion.div initial={{
-              opacity: 0.5
-             }} whileHover={{
-              opacity: 1
-             }} className="flex items-center gap-2"><Zap className="h-6 w-6" /> <span className="font-bold">Fast Refresh</span></motion.div>
-             <motion.div initial={{
-              opacity: 0.5
-             }} whileHover={{
-              opacity: 1
-             }} className="flex items-center gap-2"><Layers className="h-6 w-6" /> <span className="font-bold">Agile/Scrum</span></motion.div>
-             <motion.div initial={{
-              opacity: 0.5
-             }} whileHover={{
-              opacity: 1
-             }} className="flex items-center gap-2"><Smartphone className="h-6 w-6" /> <span className="font-bold">Responsive</span></motion.div>
-             <motion.div initial={{
-              opacity: 0.5
-             }} whileHover={{
-              opacity: 1
-             }} className="flex items-center gap-2"><Server className="h-6 w-6" /> <span className="font-bold">Axios</span></motion.div>
-          </motion.div>
+
+          <div className=' flex flex-row justify-between max-w-[70%] mx-auto overflow-hidden  ' >
+            <motion.div initial={{ x: '100%' }} animate={{
+              x: '-100%',
+
+            }}
+              transition={
+                {
+                  type: 'tween',
+                  repeat: Infinity,
+                  duration: 20,
+                  delay: 0.1
+                }
+              }
+              className="flex w-auto  justify-center gap-8 ">
+              <motion.div initial={{
+                opacity: 0.5
+              }} whileHover={{
+                opacity: 1
+              }} className="flex items-center gap-2"><GitBranch className="h-6 w-6" /> <span className="font-bold">Git/GitHub</span></motion.div>
+              <motion.div initial={{
+                opacity: 0.5
+              }} whileHover={{
+                opacity: 1
+              }} className="flex w-[150] items-center gap-2"><Zap className="h-6 w-6" /> <span className="font-bold">Fast Refresh</span></motion.div>
+              <motion.div initial={{
+                opacity: 0.5
+              }} whileHover={{
+                opacity: 1
+              }} className="flex items-center gap-2"><Layers className="h-6 w-6" /> <span className="font-bold">Agile/Scrum</span></motion.div>
+              <motion.div initial={{
+                opacity: 0.5
+              }} whileHover={{
+                opacity: 1
+              }} className="flex items-center gap-2"><Smartphone className="h-6 w-6" /> <span className="font-bold">Responsive</span></motion.div>
+              <motion.div initial={{
+                opacity: 0.5
+              }} whileHover={{
+                opacity: 1
+              }} className="flex items-center gap-2"><Server className="h-6 w-6" /> <span className="font-bold">Axios</span></motion.div>
+            </motion.div>
+
+            <motion.div initial={{ x: '100%' }} animate={{
+              x: '-100%',
+
+            }}
+              transition={
+                {
+                  type: 'tween',
+                  repeat: Infinity,
+                  duration: 20,
+                  delay: 3
+                }
+              }
+              className="flex w-auto justify-center gap-8 ">
+              <motion.div initial={{
+                opacity: 0.5
+              }} whileHover={{
+                opacity: 1
+              }} className="flex items-center gap-2"><GitBranch className="h-6 w-6" /> <span className="font-bold">Git/GitHub</span></motion.div>
+              <motion.div initial={{
+                opacity: 0.5
+              }} whileHover={{
+                opacity: 1
+              }} className="flex w-[150] items-center gap-2"><Zap className="h-6 w-6" /> <span className="font-bold">Fast Refresh</span></motion.div>
+              <motion.div initial={{
+                opacity: 0.5
+              }} whileHover={{
+                opacity: 1
+              }} className="flex items-center gap-2"><Layers className="h-6 w-6" /> <span className="font-bold">Agile/Scrum</span></motion.div>
+              <motion.div initial={{
+                opacity: 0.5
+              }} whileHover={{
+                opacity: 1
+              }} className="flex items-center gap-2"><Smartphone className="h-6 w-6" /> <span className="font-bold">Responsive</span></motion.div>
+              <motion.div initial={{
+                opacity: 0.5
+              }} whileHover={{
+                opacity: 1
+              }} className="flex items-center gap-2"><Server className="h-6 w-6" /> <span className="font-bold">Axios</span></motion.div>
+            </motion.div>
+          </div>
+
         </div>
       </div>
     </section>
