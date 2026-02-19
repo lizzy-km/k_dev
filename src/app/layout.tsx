@@ -5,7 +5,7 @@ import './globals.css';
 export const metadata: Metadata = {
   title: "Kaung Myat Soe's Portfolio | React Developer",
   description: 'Portfolio of Kaung Myat Soe -  React Developer specializing in HRMS and Fintech solutions.',
-  keywords: ['Kaung Myat Soe', 'React Developer', 'Portfolio', 'HRMS', 'Fintech', 'Web Development','kaung myat soe','react developer','front-end developer','software engineer','developer portfolio','kaungmyatsoe.dev','kaungmyatsoe2k21','kaungmyatsoe','kaung myat soe portfolio','kaung myat soe react developer','kaung myat soe hrms','kaung myat soe fintech'],
+  keywords: ['Kaung Myat Soe', 'React Developer', 'Portfolio', 'HRMS', 'Fintech', 'Web Development','kaung myat soe','react developer','front-end developer','software engineer','developer portfolio','quix','dev','kaungmyatsoe2k21','kaungmyatsoe','kaung myat soe portfolio','kaung myat soe react developer','kaung myat soe hrms','kaung myat soe fintech'],
   authors: [{ name: 'Kaung Myat Soe', url: 'https://quix-dev.online' }],
   creator: 'Kaung Myat Soe',
   openGraph: {
