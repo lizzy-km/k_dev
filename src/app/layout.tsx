@@ -1,7 +1,7 @@
 
-import type {Metadata} from 'next';
+import type { Metadata } from 'next';
 import './globals.css';
-import { Inter } from 'next/font/google'; 
+import { Inter } from 'next/font/google';
 
 export const metadata: Metadata = {
   title: "Kaung Myat Soe's Portfolio | React Developer",
@@ -13,8 +13,8 @@ export const metadata: Metadata = {
     title: "Kaung Myat Soe's Portfolio | React Developer",
     description: 'Portfolio of Kaung Myat Soe -  React Developer specializing in HRMS and Fintech solutions.',
     url: 'https://quix-dev.online',
-    siteName: "Kaung Myat Soe's Portfolio",  
-    
+    siteName: "Kaung Myat Soe's Portfolio",
+
     images: [
       {
         url: '/kaungMyatSoe_p.png',
@@ -43,13 +43,13 @@ export default function RootLayout({
 }>) {
 
 
-  
 
-  const inter = Inter({ 
-  subsets: ['latin'],
-  variable: '--font-inter', // Allows you to use it in Tailwind
-});
-      
+
+  const inter = Inter({
+    subsets: ['latin'],
+    variable: '--font-inter', // Allows you to use it in Tailwind
+  });
+
   return (
     <html lang="en" className={`scroll-smooth ${inter.variable}`}>
       {/* <head>
