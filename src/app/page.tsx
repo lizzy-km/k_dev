@@ -26,16 +26,16 @@ export default function Home() {
 
       <footer className="py-12 border-t border-border/50 text-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-          <p className="text-xl font-headline font-bold tracking-tighter text-primary">
+          <h1 className="text-xl font-headline font-bold tracking-tighter text-primary">
             KAUNG<span className="text-muted">.DEV</span>
-          </p>
+          </h1>
           <p className="text-sm text-muted-foreground">
             &copy; {new Date().getFullYear()} Kaung Myat Soe. All rights reserved.
           </p>
-          <div className="flex justify-center gap-6 text-xs text-muted-foreground">
+          <h1 className="flex justify-center gap-6 text-xs text-muted-foreground">
             <p>Built with Next.js, Tailwind</p>
             <p>Designed for Performance</p>
-          </div>
+          </h1>
         </div>
       </footer>
       <Toaster />

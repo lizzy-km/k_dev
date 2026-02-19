@@ -21,10 +21,10 @@ export function Hero() {
               <h1 className="text-5xl md:text-7xl font-extrabold leading-tight tracking-tighter">
                 Crafting <span className="gradient-text">Exceptional</span> Digital Experiences
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-lg leading-relaxed">
+              <h1 className="text-lg md:text-xl text-muted-foreground max-w-lg leading-relaxed">
                 Hi, I'm <span className="text-primary font-bold">Kaung Myat Soe</span>. 
                 A React Developer with a focus on building scalable applications and intuitive user interfaces.
-              </p>
+              </h1>
             </div>
 
             <div className="flex flex-wrap gap-4">
