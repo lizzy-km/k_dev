@@ -48,7 +48,7 @@ export function Skills() {
   ];
 
 
-  const marqueeVariants:Variants = {
+  const marqueeVariants: Variants = {
     animate: {
       x: ['0%', '-150%'], // Adjust -1035 based on your content width
       transition: {
@@ -94,42 +94,42 @@ export function Skills() {
 
           <div className=' flex flex-row gap-[40] justify-between max-w-[70%] mx-auto overflow-hidden  ' >
             {
-                [0,1,3,4].map((_, idx) => <motion.div
+              [0, 1, 3, 4].map((_, idx) => <motion.div
 
-              variants={marqueeVariants as Variants}
-              animate="animate"
-              className="flex w-auto  justify-center gap-8 ">
+                variants={marqueeVariants as Variants}
+                animate="animate"
+                className="flex w-auto  justify-center gap-8 ">
 
-              <motion.div key={idx} initial={{
-                opacity: 0.5
-              }} whileHover={{
-                opacity: 1
-              }} className="flex items-center gap-2"><GitBranch className="h-6 w-6" /> <span className="font-bold">Git/GitHub</span></motion.div>
-              <motion.div initial={{
-                opacity: 0.5
-              }} whileHover={{
-                opacity: 1
-              }} className="flex w-[150] items-center gap-2"><Zap className="h-6 w-6" /> <span className="font-bold">Fast Refresh</span></motion.div>
-              <motion.div initial={{
-                opacity: 0.5
-              }} whileHover={{
-                opacity: 1
-              }} className="flex items-center gap-2"><Layers className="h-6 w-6" /> <span className="font-bold">Agile/Scrum</span></motion.div>
-              <motion.div initial={{
-                opacity: 0.5
-              }} whileHover={{
-                opacity: 1
-              }} className="flex items-center gap-2"><Smartphone className="h-6 w-6" /> <span className="font-bold">Responsive</span></motion.div>
-              <motion.div initial={{
-                opacity: 0.5
-              }} whileHover={{
-                opacity: 1
-              }} className="flex items-center gap-2"><Server className="h-6 w-6" /> <span className="font-bold">Axios</span></motion.div>
-            </motion.div>
- )
+                <motion.div key={idx} initial={{
+                  opacity: 0.5
+                }} whileHover={{
+                  opacity: 1
+                }} className="flex items-center gap-2"><GitBranch className="h-6 w-6" /> <span className="font-bold">Git/GitHub</span></motion.div>
+                <motion.div initial={{
+                  opacity: 0.5
+                }} whileHover={{
+                  opacity: 1
+                }} className="flex w-[150] items-center gap-2"><Zap className="h-6 w-6" /> <span className="font-bold">Fast Refresh</span></motion.div>
+                <motion.div initial={{
+                  opacity: 0.5
+                }} whileHover={{
+                  opacity: 1
+                }} className="flex items-center gap-2"><Layers className="h-6 w-6" /> <span className="font-bold">Agile/Scrum</span></motion.div>
+                <motion.div initial={{
+                  opacity: 0.5
+                }} whileHover={{
+                  opacity: 1
+                }} className="flex items-center gap-2"><Smartphone className="h-6 w-6" /> <span className="font-bold">Responsive</span></motion.div>
+                <motion.div initial={{
+                  opacity: 0.5
+                }} whileHover={{
+                  opacity: 1
+                }} className="flex items-center gap-2"><Server className="h-6 w-6" /> <span className="font-bold">Axios</span></motion.div>
+              </motion.div>
+              )
             }
-            
-            
+
+
             {/* <motion.div initial={{ x: '100%' }} animate={{
               x: '-100%',
 
