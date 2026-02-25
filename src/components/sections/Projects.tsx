@@ -38,6 +38,16 @@ export function Projects() {
       features: ["Find &  Post Jobs", "Company Reviews", "Salary Insights", "Interview Experiences"]
     },
     {
+      title: "Drop It",
+      description: "A web-based DAW designed for high-precision rhythm architecture. No fluff, just raw sonic power.",
+      image: PlaceHolderImages.find(img => img.id === 'drop-it')?.imageUrl,
+      liveUrl: "/projects/drop-it",
+      githubUrl: "https://github.com/lizzy-km/drop-it",
+      tags: ["Next", "Web Audio API", "React", "Tailwind"],
+
+      features:  ["Sample-Accurate Look-Ahead Engine", "Surgical Sampler Visualizer", "High-Fidelity WAV Mastering", "Portable Project JSON Export", "Algorithmic Rhythm Workbench", "Neural Signal Capture"]
+    },
+    {
       title: "Figma Plugin (LazyMode)",
       description: "An innovative design-to-code tool that generates React functional component code from Figma frames.",
       image: PlaceHolderImages.find(img => img.id === 'figma-plugin')?.imageUrl,

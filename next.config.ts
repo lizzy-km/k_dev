@@ -30,18 +30,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  rewrites: async () => {
-    return [
-      {
-        source: '/movie-app/:match*',
-        destination: 'https://themoviedb-org.vercel.app/:match*',
-      },
-      {
-        source: '/social-app/:match*',
-        destination: 'https://facebook-k.vercel.app/:match*',
-      },
-    ];
-  },
+ 
   redirects: async () => {
     return [
       {
@@ -60,20 +49,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/github-page/:match*',
-        destination: 'https://github.com/lizzy-km/:match*',
+        source: '/drop-it/:match*',
+        destination: 'https://drop-it-zeta.vercel.app/:match*',
         permanent: true,
-      },
-      {
-        source: '/linkedin-page/:match*',
-        destination: 'https://www.linkedin.com/in/vincexoy/:match*',
-        permanent: true,
-      },
-      {
-        source: '/facebook-page/:match*',
-        destination: 'https://www.facebook.com/dev.quix/:match*',
-        permanent: true,
-      },
+      }
+      
     ];
   }
 };

@@ -20,6 +20,12 @@
       "imageHint": "Landing page with job listings and company reviews"
     },
     {
+      "id": "drop-it",
+      "description": "Web-based DAW designed for high-precision rhythm architecture. No fluff, just raw sonic power.",
+      "imageUrl": "drop-it.png",
+      "imageHint": "Studio page of drop it, a web-based DAW designed for high-precision rhythm architecture. No fluff, just raw sonic power."
+    },
+    {
       "id": "figma-plugin",
       "description": "Figma interface with a custom plugin window.",
       "imageUrl": "figma.png",

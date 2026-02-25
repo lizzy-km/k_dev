@@ -30,8 +30,8 @@
         "destination": "https://clarity-career-orpin.vercel.app/:match*"
       },
       {
-        "source": "/:match*",
-        "destination": "quix-p.vercel.app/:match*"
+        "source": "/drop-it/:match*",
+        "destination": "https://drop-it-zeta.vercel.app/:match*"
       }
   ]
 }

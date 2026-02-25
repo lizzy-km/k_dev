@@ -1,5 +1,5 @@
 "use client";
-export default function Movie() {
+export default function CareerHub() {
 
 
   return (
