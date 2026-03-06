@@ -95,7 +95,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="text-xs text-muted uppercase tracking-widest font-bold">Email</p>
-                  <p className="font-semibold">kaungmyatsoe2k21@gmail.com</p>
+                  <p className="font-semibold">kaungmyatsoe.devk@gmail.com</p>
                 </div>
               </div>
 
