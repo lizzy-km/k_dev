@@ -1,28 +1,40 @@
-import { useSpring, useTransform } from "motion/react";
 import { Card, CardContent } from "./card";
-import { useEffect } from "react";
-import { motion } from "motion/react"
-import AnimateNumber from "./AnimateNumber";
+import { Badge } from "./badge";
 
-export default function SkillCard({ skill, sIdx }: { skill: { name: string; level: number }, sIdx: number }) {
+type SkillInput = {
+  name: string;
+  level?: number | string;
+};
 
+export default function SkillCard({
+  skill,
+}: {
+  skill: SkillInput;
+  sIdx: number;
+}) {
+  const toLabel = (lvl?: number | string) => {
+    if (typeof lvl === "string") return lvl;
+    if (typeof lvl === "number") {
+      if (lvl >= 95) return "Expert";
+      if (lvl >= 90) return "Advanced";
+      if (lvl >= 80) return "Proficient";
+      return "Familiar";
+    }
+    return undefined;
+  };
 
+  const label = toLabel(skill.level);
 
-    return (
-        <Card className="bg-card/50 border-border/50">
-            <CardContent className="p-4 flex flex-col gap-2">
-                <div className="flex justify-between items-center">
-                    <span className="font-semibold text-sm">{skill.name}</span>
-                    <AnimateNumber skill={{
-                        level: skill.level
-                    }} sIdx={sIdx * 0.1} />
-                </div>
-                <div className="w-full h-1.5 bg-secondary rounded-full overflow-hidden">
-                    <motion.div initial={{ width: 0 }} whileInView={{ width: `${skill.level}%` }} transition={{ duration: 0.4, delay: sIdx * 0.1 }}
-                        className="h-full bg-primary rounded-full transition-all duration-1000"
-                    />
-                </div>
-            </CardContent>
-        </Card>
-    );
+  return (
+    <Card className="bg-card/50 border-border/50">
+      <CardContent className="p-4 flex items-center justify-between">
+        <span className="font-semibold text-sm">{skill.name}</span>
+        {label ? (
+          <Badge variant="outline" className="text-[10px] px-2 py-0.5">
+            {label}
+          </Badge>
+        ) : null}
+      </CardContent>
+    </Card>
+  );
 }

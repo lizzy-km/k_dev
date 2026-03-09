@@ -1,7 +1,5 @@
 
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { motion, Variant, Variants } from "framer-motion";
 
 import {
@@ -24,25 +22,26 @@ export function Skills() {
       title: "Hard Skills",
       icon: <Code2 className="h-5 w-5 text-primary" />,
       skills: [
-        { name: "JavaScript/TypeScript", level: 95 },
-        { name: "React.js / Next.js", level: 98 },
-        { name: "Zustand / Redux", level: 90 },
-        { name: "React Query", level: 92 },
-        { name: "Tailwind CSS", level: 96 },
-        { name: "REST APIs / WebSockets", level: 88 },
-        { name: "Firebase", level: 85 },
-        { name: "AntD / Mantine / Chakra", level: 94 }
+        { name: "JavaScript/TypeScript", level: "Expert" },
+        { name: "React.js / Next.js", level: "Expert" },
+        { name: "HTML / CSS", level: "Expert" },
+        { name: "Zustand / Redux", level: "Advanced" },
+        { name: "React Query", level: "Advanced" },
+        { name: "Tailwind CSS", level: "Expert" },
+        { name: "REST APIs / WebSockets", level: "Proficient" },
+        { name: "Firebase", level: "Proficient" },
+        { name: "AntD / Mantine / Chakra", level: "Advanced" }
       ]
     },
     {
       title: "Soft Skills",
       icon: <UserCircle2 className="h-5 w-5 text-primary" />,
       skills: [
-        { name: "Communication", level: 90 },
-        { name: "Time Management", level: 95 },
-        { name: "Teamwork", level: 98 },
-        { name: "Self-motivation", level: 92 },
-        { name: "Problem Solving", level: 96 }
+        { name: "Communication", level: "Advanced" },
+        { name: "Time Management", level: "Expert" },
+        { name: "Teamwork", level: "Expert" },
+        { name: "Self-motivation", level: "Advanced" },
+        { name: "Problem Solving", level: "Expert" }
       ]
     }
   ];
@@ -78,7 +77,7 @@ export function Skills() {
             <div key={idx} className="space-y-6">
               <div className="flex items-center gap-3 pb-2 border-b border-border">
                 {cat.icon}
-                <h3 className="text-2xl font-bold uppercase tracking-wider text-sm">{cat.title}</h3>
+                <h3 className=" font-bold uppercase tracking-wider text-sm">{cat.title}</h3>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {cat.skills.map((skill, sIdx) => (
@@ -94,7 +93,7 @@ export function Skills() {
 
           <div className=' flex flex-row gap-[40] justify-between max-w-[70%] mx-auto overflow-hidden  ' >
             {
-              [0, 1, 3, 4].map((_, idx) => <motion.div
+              [0, 1, 3, 4].map((_, idx) => <motion.div key={idx}
 
                 variants={marqueeVariants as Variants}
                 animate="animate"
