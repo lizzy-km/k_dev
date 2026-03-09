@@ -46,7 +46,6 @@ const useFormField = () => {
   const itemContext = React.useContext(FormItemContext)
   const { getFieldState, formState } = useFormContext()
 
-
   const fieldState = getFieldState(fieldContext.name, formState)
 
   if (!fieldContext) {
@@ -105,13 +104,10 @@ const FormLabel = React.forwardRef<
 FormLabel.displayName = "FormLabel"
 
 const FormControl = React.forwardRef<
-  React.ComponentRef<typeof Slot>,
+  React.ElementRef<typeof Slot>,
   React.ComponentPropsWithoutRef<typeof Slot>
 >(({ ...props }, ref) => {
-
   const { error, formItemId, formDescriptionId, formMessageId } = useFormField()
-
-  const children = (props.children as any )?.length > 0 ? (props.children as React.ReactNode[]).find((child:any)=> React.isValidElement(child) ) : props.children
 
   return (
     <Slot
@@ -123,7 +119,7 @@ const FormControl = React.forwardRef<
           : `${formDescriptionId} ${formMessageId}`
       }
       aria-invalid={!!error}
-      children={children}
+      {...props}
     />
   )
 })

@@ -1,243 +1,136 @@
 
 "use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import { ArrowRight, Briefcase, Building2, DollarSign, MessageSquare, Search, Menu } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Logo } from '@/components/logo';
-import { UserNav } from '@/components/user-nav';
-import { cn } from '@/lib/utils';
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetDescription,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { db, User } from '@/lib/db';
+import { UserPlus, ArrowRight, Activity, Zap, CheckCircle2 } from 'lucide-react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { Logo } from '@/components/brand/logo';
 
-// Header that becomes opaque on scroll
-function HomeHeader() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navLinks = [
-    { href: '/jobs', label: 'Jobs' },
-    { href: '/companies', label: 'Companies' },
-    { href: '/reviews', label: 'Company Reviews' },
-    { href: '/salaries', label: 'Salaries' },
-    { href: '/interviews', label: 'Interviews' },
-  ];
-
-  return (
-    <header className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-      scrolled ? "bg-background/80 backdrop-blur-sm border-b" : "bg-transparent"
-    )}>
-      <div className="container px-4 mx-auto flex h-20 items-center justify-between">
-        <Logo className={cn(scrolled ? "text-primary" : "text-white drop-shadow-md")} />
-        <div className="flex items-center gap-4">
-            <nav className="hidden md:flex items-center gap-6">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={cn("text-sm font-medium transition-colors", scrolled ? "text-muted-foreground hover:text-primary" : "text-primary-foreground/80 hover:text-white")}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-            <div className="hidden md:block">
-              <UserNav />
-            </div>
-            <div className="md:hidden">
-              <Sheet>
-                <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon" className={cn("hover:bg-transparent focus:bg-transparent focus-visible:bg-transparent", scrolled ? "text-primary hover:text-primary" : "text-white hover:text-white")}>
-                    <Menu className="h-6 w-6" />
-                    <span className="sr-only">Toggle navigation menu</span>
-                  </Button>
-                </SheetTrigger>
-                <SheetContent side="right">
-                  <SheetHeader className="sr-only">
-                    <SheetTitle>Mobile Menu</SheetTitle>
-                    <SheetDescription>
-                      A list of navigation links for the ClarityCareer application.
-                    </SheetDescription>
-                  </SheetHeader>
-                  <div className="flex flex-col gap-6 pt-12">
-                    <Logo />
-                    <nav className="flex flex-col gap-4 text-lg font-medium">
-                      {navLinks.map((link) => (
-                        <Link key={link.href} href={link.href} className="text-muted-foreground hover:text-primary">{link.label}</Link>
-                      ))}
-                    </nav>
-                    <div className="mt-auto">
-                      <UserNav />
-                    </div>
-                  </div>
-                </SheetContent>
-              </Sheet>
-            </div>
-        </div>
-      </div>
-    </header>
-  );
-}
-
-
-export default function HomePage() {
-  const features = [
-    {
-      icon: <Briefcase className="h-6 w-6 text-primary" />,
-      title: 'Search Millions of Jobs',
-      description: 'Find your next career move with our comprehensive, filterable job board.',
-    },
-    {
-      icon: <Building2 className="h-6 w-6 text-primary" />,
-      title: 'Get Company Insights',
-      description: 'Get the inside scoop on company culture, salaries, and interview processes.',
-    },
-    {
-      icon: <DollarSign className="h-6 w-6 text-primary" />,
-      title: 'Know Your Worth',
-      description: 'Benchmark your salary against real data from thousands of professionals.',
-    },
-    {
-      icon: <MessageSquare className="h-6 w-6 text-primary" />,
-      title: 'Ace Your Interview',
-      description: 'Read about real interview experiences to help you prepare.',
-    },
-  ];
-  
-  const [searchTerm, setSearchTerm] = useState('');
+export default function LandingPage() {
+  const [users, setUsers] = useState<User[]>([]);
   const router = useRouter();
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchTerm.trim()) {
-      router.push(`/jobs?q=${encodeURIComponent(searchTerm.trim())}`);
-    } else {
-      router.push('/jobs');
+  const appFeatures = [
+    "Sample-Accurate Look-Ahead Engine",
+    "Waveform & ADSR Editor",
+    "High-Fidelity WAV Export",
+    "Portable Project JSON Configs",
+    "Pattern Generation Tools",
+    "High-Gain Sample Recorder"
+  ];
+
+  useEffect(() => {
+    setUsers(db.getUsers());
+  }, []);
+
+  const handleSelectUser = (user: User) => {
+    db.setCurrentUser(user.id);
+    router.push('/studio');
+  };
+
+  const createNewUser = () => {
+    const name = prompt("IDENTIFY YOURSELF (DJ_NAME):");
+    if (name) {
+      const newUser: User = {
+        id: crypto.randomUUID(),
+        name,
+        avatar: `https://picsum.photos/seed/${name}/400`
+      };
+      db.saveUser(newUser);
+      setUsers([...users, newUser]);
+      handleSelectUser(newUser);
     }
   };
 
-
   return (
-    <div className="flex flex-col min-h-screen bg-background text-foreground">
-      <HomeHeader />
-
-      <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="relative bg-primary text-center text-primary-foreground">
-          <div className="container mx-auto px-4 pt-32 pb-20 md:pt-40 md:pb-24 animate-fade-in-up">
-            <h1 className="text-4xl md:text-6xl font-bold font-headline tracking-tight">
-              Your Career, Clarified.
+    <div className="min-h-screen bg-[#050505] text-foreground flex flex-col items-center justify-center p-6 relative overflow-hidden studio-grid-bg">
+      <div className="absolute top-[-20%] left-[-10%] w-[80%] h-[80%] bg-primary/10 rounded-full blur-[160px] pointer-events-none animate-pulse-gold" />
+      <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
+      
+      <div className="max-w-6xl w-full flex flex-col items-center text-center space-y-20 relative z-10 py-20">
+        <div className="space-y-12 max-w-4xl flex flex-col items-center">
+          <div className="animate-in fade-in zoom-in duration-1000">
+            <Logo size={120} />
+          </div>
+          
+          <div className="space-y-6">
+            <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-white/5 border border-white/10 text-[10px] font-black tracking-[0.4em] uppercase text-primary animate-in fade-in slide-in-from-bottom-2">
+              <Activity className="w-4 h-4 text-primary" />
+              Web_Audio_Engine_Ready
+            </div>
+            <h1 className="text-8xl md:text-[10rem] font-black tracking-[-0.05em] leading-none animate-in fade-in slide-in-from-top-12 duration-1000">
+              DROP <span className="text-primary italic">IT.</span>
             </h1>
-            <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-primary-foreground/80">
-              The transparent job board. Find jobs, company reviews, and salary insights all in one place.
+            <p className="text-2xl md:text-3xl text-muted-foreground font-medium max-w-3xl mx-auto leading-relaxed animate-in fade-in duration-1000 delay-300">
+              A high-performance workstation for rhythm design and audio mastering. 
             </p>
-            <form onSubmit={handleSearch} className="mt-8 w-full max-w-2xl mx-auto flex gap-2">
-              <div className="relative flex-grow">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                <Input
-                  type="text"
-                  placeholder="Job title, company, or keyword"
-                  className="pl-12 h-14 text-base bg-background/90 text-foreground focus:bg-background rounded-full"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-              </div>
-              <Button type="submit" size="lg" className="h-14 bg-accent hover:bg-accent/90 text-accent-foreground px-8 rounded-full">
-                Search
-              </Button>
-            </form>
-          </div>
-        </section>
-
-        {/* Features Section */}
-        <section id="features" className="py-16 md:py-24 bg-background">
-          <div className="container mx-auto">
-            <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold font-headline">Everything you need for your job search</h2>
-              <p className="mt-4 text-muted-foreground text-lg">
-                We're not just a job board. We provide the tools and information you need to make informed career decisions.
-              </p>
-            </div>
-            <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-              {features.map((feature) => (
-                <div key={feature.title} className="text-center p-6 border border-transparent hover:border-border hover:bg-secondary transition-colors rounded-lg">
-                  <div className="mx-auto bg-primary/10 text-primary p-3 rounded-full w-fit mb-4">
-                    {feature.icon}
-                  </div>
-                  <h3 className="text-lg font-semibold font-headline">{feature.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{feature.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* How it works */}
-        <section className="py-16 md:py-24 bg-secondary">
-          <div className="container mx-auto">
-            <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold font-headline">Get Started in 3 Easy Steps</h2>
-            </div>
-            <div className="mt-12 grid md:grid-cols-3 gap-8 md:gap-16 text-center relative">
-                <div className="absolute top-6 left-0 right-0 h-0.5 bg-border hidden md:block" />
-                 <div className="relative flex flex-col items-center">
-                    <div className="h-12 w-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xl z-10 border-4 border-secondary">1</div>
-                    <h3 className="mt-4 text-lg font-semibold">Search and Discover</h3>
-                    <p className="mt-1 text-muted-foreground text-sm">Filter through millions of jobs and companies.</p>
-                </div>
-                <div className="relative flex flex-col items-center">
-                    <div className="h-12 w-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xl z-10 border-4 border-secondary">2</div>
-                    <h3 className="mt-4 text-lg font-semibold">Research and Compare</h3>
-                    <p className="mt-1 text-muted-foreground text-sm">Read anonymous reviews and compare salaries.</p>
-                </div>
-                <div className="relative flex flex-col items-center">
-                    <div className="h-12 w-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xl z-10 border-4 border-secondary">3</div>
-                    <h3 className="mt-4 text-lg font-semibold">Apply with Confidence</h3>
-                    <p className="mt-1 text-muted-foreground text-sm">Submit your application directly and track its status.</p>
-                </div>
-            </div>
-          </div>
-        </section>
-        
-        {/* CTA Section */}
-        <section className="py-20 md:py-32 bg-background">
-          <div className="container mx-auto text-center">
-             <h2 className="text-3xl md:text-5xl font-bold font-headline max-w-2xl mx-auto">Ready to find a job you love?</h2>
-             <p className="mt-4 text-muted-foreground text-lg max-w-xl mx-auto">Create a free account to get personalized job recommendations, save your favorite listings, and get salary insights.</p>
-             <Button size="lg" asChild className="mt-8 text-base h-12 px-8">
-              <Link href="/signup">Get Started for Free <ArrowRight className="ml-2 h-4 w-4" /></Link>
-             </Button>
-          </div>
-        </section>
-      </main>
-
-      <footer className="bg-primary px-4 text-primary-foreground">
-        <div className="container mx-auto py-8 flex flex-col md:flex-row justify-between items-center text-sm">
-          <p className="text-primary-foreground/80">&copy; {new Date().getFullYear()} ClarityCareer. All rights reserved.</p>
-          <div className="flex gap-4 mt-4 md:mt-0">
-            <Link href="#" className="text-primary-foreground/80 hover:text-white">Privacy Policy</Link>
-            <Link href="#" className="text-primary-foreground/80 hover:text-white">Terms of Service</Link>
           </div>
         </div>
-      </footer>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-4xl">
+          {appFeatures.map((feature, i) => (
+            <div key={i} className="flex items-center gap-3 bg-white/5 border border-white/10 p-4 rounded-2xl animate-in fade-in slide-in-from-bottom-4" style={{ animationDelay: `${i * 0.1}s` }}>
+              <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
+              <span className="text-[10px] font-black uppercase tracking-widest text-left leading-tight">{feature}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-12">
+          {users.map((user) => (
+            <button
+              key={user.id}
+              onClick={() => handleSelectUser(user)}
+              className="group glass-panel p-10 rounded-[3rem] hover:bg-white/5 transition-all flex flex-col items-center gap-8 animate-in zoom-in duration-700 hover:scale-[1.02] gold-border"
+            >
+              <div className="relative">
+                <img 
+                  src={user.avatar} 
+                  alt={user.name} 
+                  className="w-32 h-32 rounded-[2.5rem] object-cover grayscale group-hover:grayscale-0 transition-all duration-700 shadow-2xl" 
+                />
+                <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center border-4 border-[#050505] animate-bounce-subtle">
+                   <Activity className="w-4 h-4 text-black" />
+                </div>
+              </div>
+              <div className="space-y-2">
+                <h3 className="font-black text-3xl group-hover:text-primary transition-colors tracking-tighter uppercase italic">{user.name}</h3>
+                <p className="text-[10px] font-black uppercase text-muted-foreground tracking-[0.4em]">Launch_Studio</p>
+              </div>
+              <ArrowRight className="w-6 h-6 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all text-primary" />
+            </button>
+          ))}
+
+          <button
+            onClick={createNewUser}
+            className="group p-10 rounded-[3rem] border-2 border-dashed border-white/10 hover:border-primary/40 hover:bg-primary/5 transition-all flex flex-col items-center justify-center gap-8 animate-in zoom-in duration-1000"
+          >
+            <div className="w-32 h-32 rounded-[2.5rem] bg-white/5 flex items-center justify-center group-hover:bg-primary/20 transition-all duration-500 gold-border">
+              <UserPlus className="w-12 h-12 text-muted-foreground group-hover:text-primary transition-colors" />
+            </div>
+            <div className="space-y-2">
+              <h3 className="font-black text-3xl uppercase tracking-tighter">New_User</h3>
+              <p className="text-[10px] font-black uppercase text-muted-foreground tracking-[0.4em]">Setup_Profile</p>
+            </div>
+          </button>
+        </div>
+
+        <div className="flex flex-col items-center gap-6 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-700">
+          <Link href="/browse">
+            <Button variant="ghost" className="text-muted-foreground hover:text-primary font-black text-xs uppercase tracking-[0.5em] gap-3 px-12 rounded-full h-16 border border-white/5 hover:bg-white/5">
+              Explore_Public_Library
+            </Button>
+          </Link>
+          <div className="flex gap-2 text-[10px] font-black text-muted-foreground uppercase tracking-widest opacity-20">
+             <span>v1.0.0</span>
+             <span>•</span>
+             <span>Stable</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

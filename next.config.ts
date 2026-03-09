@@ -23,12 +23,6 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
       {
-        hostname: 'plus.unsplash.com',
-        protocol: 'https',
-        port: '',
-        pathname: '/**',
-      },
-      {
         protocol: 'https',
         hostname: 'picsum.photos',
         port: '',
