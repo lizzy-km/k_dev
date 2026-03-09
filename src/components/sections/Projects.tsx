@@ -1,4 +1,4 @@
-
+"use client"
 import React from 'react';
 import Image from 'next/image';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function Projects() {
+  const domain = 'qiux-dev.online'
   const projects = [
     // {
     //   title: "React + Firebase Social Media",
@@ -23,7 +24,7 @@ export function Projects() {
       title: "The Movie Database Clone",
       description: "A comprehensive movie discovery platform utilizing The Movie DB API with high design fidelity.",
       image: PlaceHolderImages.find(img => img.id === 'movie-db')?.imageUrl,
-      liveUrl: "/projects/movie",
+      liveUrl: `https://movie.${domain}`,
       githubUrl: "https://github.com/lizzy-km/themoviedb-org",
       tags: ["React", "API Integration", "Styled Components"],
       features: ["Search Movies", "Trending Lists", "Details & Cast", "Responsive Grid"]
@@ -32,7 +33,7 @@ export function Projects() {
       title: "ClarityCareer",
       description: "The transparent job board. Find jobs, company reviews, and salary insights all in one place.",
       image: PlaceHolderImages.find(img => img.id === 'career-hub')?.imageUrl,
-      liveUrl: "/projects/career-hub",
+      liveUrl: `https://career.${domain}`,
       githubUrl: "https://github.com/lizzy-km/clarity-career",
       tags: ["Next", "Firebase", "Redix UI", "Styled Components"],
       features: ["Find &  Post Jobs", "Company Reviews", "Salary Insights", "Interview Experiences"]
@@ -41,7 +42,7 @@ export function Projects() {
       title: "Drop It",
       description: "A web-based DAW designed for high-precision rhythm architecture. No fluff, just raw sonic power.",
       image: PlaceHolderImages.find(img => img.id === 'drop-it')?.imageUrl,
-      liveUrl: "/projects/drop-it",
+      liveUrl: `https://dropit.${domain}`,
       githubUrl: "https://github.com/lizzy-km/drop-it",
       tags: ["Next", "Web Audio API", "React", "Tailwind"],
 
