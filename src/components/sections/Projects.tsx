@@ -117,7 +117,7 @@ export function Projects() {
               </CardContent>
               <CardFooter className="pt-0 flex gap-4">
                 <Button asChild variant="outline" size="sm" className="flex-1">
-                  <Link href={project.liveUrl} >Live Demo <ExternalLink className="ml-2 h-4 w-4" /></Link>
+                  <Link target="_blank" href={project.liveUrl} >Live Demo <ExternalLink className="ml-2 h-4 w-4" /></Link>
                 </Button>
                 <Button asChild variant="outline" size="sm" className="flex-1">
                   <Link href={project.githubUrl} target="_blank" >Source <Github className="ml-2 h-4 w-4" /></Link>
