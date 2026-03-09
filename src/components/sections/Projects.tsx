@@ -83,7 +83,7 @@ export function Projects() {
                   />
                   <div className="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
                     <Button asChild size="icon" variant="secondary" className="rounded-full">
-                      <Link href={project.liveUrl} ><Eye className="h-5 w-5" /></Link>
+                      <Link  href={project.liveUrl} ><Eye className="h-5 w-5" /></Link>
                     </Button>
                     <Button asChild size="icon" variant="secondary" className="rounded-full">
                       <Link href={project.githubUrl} target="_blank"><Github className="h-5 w-5" /></Link>
