@@ -1,4 +1,4 @@
-import type { NextConfig } from 'next';
+import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -23,6 +23,12 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
       {
+        hostname: 'plus.unsplash.com',
+        protocol: 'https',
+        port: '',
+        pathname: '/**',
+      },
+      {
         protocol: 'https',
         hostname: 'picsum.photos',
         port: '',
@@ -30,32 +36,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
- 
-  redirects: async () => {
-    return [
-      {
-        source: '/movie-app/:match*',
-        destination: 'https://themoviedb-org.vercel.app/:match*',
-        permanent: true,
-      },
-      {
-        source: '/social-app/:match*',
-        destination: 'https://facebook-k.vercel.app/:match*',
-        permanent: true,
-      },
-       {
-        source: '/career-hub-app/:match*',
-        destination: 'https://clarity-career-orpin.vercel.app/:match*',
-        permanent: true,
-      },
-      {
-        source: '/drop-it/:match*',
-        destination: 'https://drop-it-zeta.vercel.app/:match*',
-        permanent: true,
-      }
-      
-    ];
-  }
 };
 
 export default nextConfig;
