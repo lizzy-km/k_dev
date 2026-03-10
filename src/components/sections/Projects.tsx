@@ -24,7 +24,7 @@ export function Projects() {
       title: "The Movie Database Clone",
       description: "A comprehensive movie discovery platform utilizing The Movie DB API with high design fidelity.",
       image: PlaceHolderImages.find(img => img.id === 'movie-db')?.imageUrl,
-      liveUrl: `https://movie.${domain}`,
+      liveUrl: `/project/movie`,
       githubUrl: "https://github.com/lizzy-km/themoviedb-org",
       tags: ["React", "API Integration", "Styled Components"],
       features: ["Search Movies", "Trending Lists", "Details & Cast", "Responsive Grid"]
