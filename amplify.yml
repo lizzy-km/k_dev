@@ -4,14 +4,14 @@ frontend:
     preBuild:
       commands:
         - npm ci --cache .npm --prefer-offline
+        - npx update-browserslist-db@latest || true
     build:
       commands:
         - npm run build
   artifacts:
-    baseDirectory: .next
+    baseDirectory: dist
     files:
       - '**/*'
   cache:
     paths:
-      - .next/cache/**/*
       - .npm/**/*
