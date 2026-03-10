@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function Projects() {
-  const domain = 'qiux-dev.online'
+  const domain = 'quix-dev.online'
   const projects = [
     // {
     //   title: "React + Firebase Social Media",
