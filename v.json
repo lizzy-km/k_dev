@@ -1,0 +1,64 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/:path*.jpg",
+      "destination": "https://d3tl7h6gfpqk4t.cloudfront.net/:path*.jpg"
+    },
+    {
+      "source": "/:path*.jpeg",
+      "destination": "https://d3tl7h6gfpqk4t.cloudfront.net/:path*.jpg"
+    },
+    {
+      "source": "/assets/:match*",
+      "destination": "https://digitalbase.com.mm/assets/:match*"
+    },
+    {
+      "source": "/:path*.png",
+      "destination": "https://d3tl7h6gfpqk4t.cloudfront.net/:path*.png"
+    },
+    {
+      "source": "/:path*.gif",
+      "destination": "https://d3tl7h6gfpqk4t.cloudfront.net/:path*.gif"
+    },
+    {
+      "source": "/:path*.mp4",
+      "destination": "https://d3tl7h6gfpqk4t.cloudfront.net/:path*.mp4"
+    },
+    {
+      "source": "/:path*.mkv",
+      "destination": "https://d3tl7h6gfpqk4t.cloudfront.net/:path*.mkv"
+    },
+    {
+      "source": "/:path*.pdf",
+      "destination": "https://d3tl7h6gfpqk4t.cloudfront.net/:path*.pdf"
+    },
+    {
+      "source": "/:path*.zip",
+      "destination": "https://d3tl7h6gfpqk4t.cloudfront.net/:path*.zip"
+    },
+    {
+      "source": "/:path*.docs",
+      "destination": "https://d3tl7h6gfpqk4t.cloudfront.net/:path*.docs"
+    },
+    {
+      "source": "/:match*",
+      "destination": "https://api.hr.digitalbase.com.mm/:match*"
+    }
+  ]
+}
